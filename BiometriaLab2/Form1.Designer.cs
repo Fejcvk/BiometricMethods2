@@ -29,21 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.bChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.strechingButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
+            this.equalisationButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gChart)).BeginInit();
@@ -61,55 +59,49 @@
             // 
             // rChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.rChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.rChart.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.rChart.ChartAreas.Add(chartArea4);
             this.rChart.Location = new System.Drawing.Point(777, 12);
             this.rChart.Name = "rChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.rChart.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.Color = System.Drawing.Color.Red;
+            series4.Name = "redPixels";
+            this.rChart.Series.Add(series4);
             this.rChart.Size = new System.Drawing.Size(408, 234);
             this.rChart.TabIndex = 1;
             this.rChart.Text = "chart1";
             // 
             // gChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.gChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.gChart.Legends.Add(legend2);
+            chartArea5.Name = "ChartArea1";
+            this.gChart.ChartAreas.Add(chartArea5);
             this.gChart.Location = new System.Drawing.Point(777, 265);
             this.gChart.Name = "gChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.gChart.Series.Add(series2);
+            series5.ChartArea = "ChartArea1";
+            series5.Color = System.Drawing.Color.Lime;
+            series5.Name = "greenPixels";
+            this.gChart.Series.Add(series5);
             this.gChart.Size = new System.Drawing.Size(408, 234);
             this.gChart.TabIndex = 2;
             this.gChart.Text = "chart2";
             // 
             // bChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.bChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.bChart.Legends.Add(legend3);
+            chartArea6.Name = "ChartArea1";
+            this.bChart.ChartAreas.Add(chartArea6);
             this.bChart.Location = new System.Drawing.Point(777, 512);
             this.bChart.Name = "bChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.bChart.Series.Add(series3);
+            series6.ChartArea = "ChartArea1";
+            series6.Color = System.Drawing.Color.Blue;
+            series6.MarkerColor = System.Drawing.Color.White;
+            series6.Name = "bluePixels";
+            this.bChart.Series.Add(series6);
             this.bChart.Size = new System.Drawing.Size(408, 234);
             this.bChart.TabIndex = 3;
-            this.bChart.Text = "chart3";
             // 
             // strechingButton
             // 
-            this.strechingButton.Location = new System.Drawing.Point(12, 532);
+            this.strechingButton.Location = new System.Drawing.Point(12, 531);
             this.strechingButton.Name = "strechingButton";
             this.strechingButton.Size = new System.Drawing.Size(75, 23);
             this.strechingButton.TabIndex = 4;
@@ -127,11 +119,22 @@
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
+            // equalisationButton
+            // 
+            this.equalisationButton.Location = new System.Drawing.Point(175, 531);
+            this.equalisationButton.Name = "equalisationButton";
+            this.equalisationButton.Size = new System.Drawing.Size(75, 23);
+            this.equalisationButton.TabIndex = 7;
+            this.equalisationButton.Text = "Equalisation";
+            this.equalisationButton.UseVisualStyleBackColor = true;
+            this.equalisationButton.Click += new System.EventHandler(this.equalisationButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1260, 758);
+            this.Controls.Add(this.equalisationButton);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.strechingButton);
             this.Controls.Add(this.bChart);
@@ -156,6 +159,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart bChart;
         private System.Windows.Forms.Button strechingButton;
         private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button equalisationButton;
     }
 }
 

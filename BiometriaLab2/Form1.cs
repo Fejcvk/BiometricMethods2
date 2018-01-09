@@ -15,6 +15,7 @@ namespace BiometriaLab2
         public Form1()
         {
             InitializeComponent();
+           fillCharts(new Bitmap(BiometriaLab2.Properties.Resources.Lenna));
         }
         private void histogramStreching(Bitmap bitmap)
         {
@@ -43,6 +44,7 @@ namespace BiometriaLab2
                 }
             }
             pictureBox1.Image = bitmap;
+            fillCharts(bitmap);
         }
         private List<int> minAndMxChannelValue(Bitmap bitmap)
         {
@@ -102,5 +104,59 @@ namespace BiometriaLab2
         {
             pictureBox1.Image = BiometriaLab2.Properties.Resources.Lenna;
         }
+        private void fillCharts(Bitmap bitmap)
+        {
+            var redOccuranceList = new List<int>();
+            var blueOccuranceList = new List<int>();
+            var greenOccuranceList = new List<int>();
+            for (int i = 0; i<256;i++)
+            {
+                redOccuranceList.Insert(i, 0);
+                greenOccuranceList.Insert(i, 0);
+                blueOccuranceList.Insert(i, 0);
+            }
+            var height = bitmap.Height;
+            var width = bitmap.Width;
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    var currRGB = bitmap.GetPixel(j, i);
+                    var redCounter = redOccuranceList.ElementAt(currRGB.R);
+                    redOccuranceList.RemoveAt(currRGB.R);
+                    redOccuranceList.Insert(currRGB.R, redCounter + 1);
+                    var greenCounter = greenOccuranceList.ElementAt(currRGB.G);
+                    greenOccuranceList.RemoveAt(currRGB.G);
+                    greenOccuranceList.Insert(currRGB.G, greenCounter + 1);
+                    var blueCounter = redOccuranceList.ElementAt(currRGB.B);
+                    blueOccuranceList.RemoveAt(currRGB.B);
+                    blueOccuranceList.Insert(currRGB.B, blueCounter + 1);
+                }
+            }
+            for(int i = 0; i < 256; i++)
+            {
+                this.rChart.Series["redPixels"].Points.AddXY(i, redOccuranceList.ElementAt(i));
+                this.gChart.Series["greenPixels"].Points.AddXY(i, greenOccuranceList.ElementAt(i));
+                this.bChart.Series["bluePixels"].Points.AddXY(i, blueOccuranceList.ElementAt(i));
+            }
+        }
+
+        private void equalisationButton_Click(object sender, EventArgs e)
+        {
+            Bitmap bitmap = new Bitmap(BiometriaLab2.Properties.Resources.Lenna);
+            histogramEqualisation(bitmap);
+        }
+
+        private void histogramEqualisation(Bitmap bitmap)
+        {
+            var height = bitmap.Height;
+            var width = bitmap.Width;
+            //TODO:EQUALISATION
+        }
+        private int equalisationLut(int currDistr, int zeroIdxDistr)
+        {
+            return ((currDistr - zeroIdxDistr) / (1 - zeroIdxDistr) ) * 255;
+        }
+
     }
 }
