@@ -82,6 +82,16 @@ namespace BiometriaLab2.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap img01 {
+            get {
+                object obj = ResourceManager.GetObject("img01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lenna {
             get {
                 object obj = ResourceManager.GetObject("Lenna", resourceCulture);
